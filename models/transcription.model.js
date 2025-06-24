@@ -7,7 +7,7 @@ const transcriptionSchema = new mongoose.Schema({
         default: 'pending'
     },
     transcript: {
-        type: string,
+        type: String,
         default: ''
     },
     user: {
