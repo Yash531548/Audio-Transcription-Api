@@ -1,10 +1,11 @@
 import { Router } from "express";
+import upload from "../config/multer.js";
 
 const audioRouter = Router();
 
-// audioRouter.get('/',(res,req)=> res.send({title : "Inside Audio Routes"}))
+
 audioRouter.get('/',(req,res)=> res.send({title : "GET all audios"}))
-audioRouter.post('/upload',(req,res)=> res.send({title : "SAVE file in System"}))
+audioRouter.post('/upload',upload , (req,res)=>{res.send("audio upload route")})
 audioRouter.get('/status/:id',(req,res)=> res.send({title : "GET Transcription Details"}))
 
 
