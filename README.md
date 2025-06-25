@@ -3,6 +3,28 @@
 
 **🎙️ Audio Transcription API** — An Express.js-based backend API that enables users to upload audio files (MP3/WAV/FLAC/OGG), transcribe them to text using the Deepgram API, and track transcription status. Features include user authentication, rate limiting, bot protection (Arcjet), and MongoDB-based storage.
 
+## 📚 Table of Contents
+
+- [📌 Project Title](#-project-title)
+- [✨ Features](#-features)
+- [🚀 Demo Video](#-demo-video)
+- [🔧 Tech Stack](#-tech-stack)
+- [🧠 How It Works](#-how-it-works)
+- [🚀 Getting Started](#-getting-started)
+  - [1. Clone the repository](#1-clone-the-repository)
+  - [2. Install dependencies](#2-install-dependencies)
+  - [3. Setup environment variables](#3-setup-environment-variables)
+  - [4. Run the app](#4-run-the-app)
+- [📂 API Endpoints](#-api-endpoints)
+  - [🧾 Register New User](#-register-new-user)
+  - [🔐 Login User](#-login-user)
+  - [📤 Upload Audio](#-upload-audio)
+  - [📊 Get Job Status](#-get-job-status)
+- [⚠️ Notes](#️-notes)
+- [📄 License](#-license)
+- [🙋‍♂️ Author](#-author)
+
+
 ## ✨ Features
 
 - 🔐 User authentication with JWT
@@ -15,7 +37,9 @@
 
 ## 🚀 Demo Video:
 
- [🎬 Watch Demo Video](./public/Demo_Audio_trans.mp4)
+ <!-- [🎬 Watch Demo Video](./public/Demo_Audio_trans.mp4) -->
+ [🎬 Watch Demo Video](https://drive.google.com/file/d/1qs5X_uZrTrQ94OUgzJ6AOR6bCeAKMhwM/view?usp=sharing)
+
 
 ## 🔧 Tech Stack
 
@@ -31,7 +55,7 @@
    - A **JWT token** is issued on successful login for authentication.
 
 2. **Uploading the Audio File**
-   - Authenticated users can upload `.mp3`, `.wav`, or other supported formats via a `POST /transcription/upload` request.
+   - Authenticated users can upload `.mp3`, `.wav`, `.flac`, `.ogg` or other supported formats via a `POST /transcription/upload` request.
    - The file is handled by **Multer**, temporarily stored locally, and then sent to **Deepgram** for transcription.
 
 3. **Processing with Deepgram**
@@ -109,6 +133,8 @@ npm run dev
   "password": "yourpassword"
 }
 ```
+![Sign up Response](./public/Sign_up%20Response.png)
+
 
 ### 🔐 Login User
 **POST** `/api/v1/auth/sign-in`
@@ -120,6 +146,7 @@ npm run dev
 }
 ```
 - Returns a JWT token.
+![Sign In](./public/Sign_in%20Response.png)
 
 ### 📤 Upload Audio
 **POST** `/api/v1/transcription/upload`
@@ -144,7 +171,8 @@ Content-Type: multipart/form-data
   "jobId": "<mongoObjectId>"
 }
 ```
-
+![Auth Bearer](./public/Auth%20Bearer.png)
+![Upload Response](./public/Upload%20Respone%20.png)
 ### 📊 Get Job Status
 **POST** `/api/v1/transcription/status/:Id`
 
@@ -161,6 +189,7 @@ Authorization: Bearer <JWT_TOKEN>
   "transcription": "Hello, this is the transcribed text..."
 }
 ```
+![Job Status Response](./public/Job%20Status%20Response.png)
 
 ## ⚠️ Notes
 
